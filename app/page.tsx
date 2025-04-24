@@ -7,6 +7,7 @@ import Header from "@/components/Header/headerTopBar";
 import MainImage from "@/components/Header/mainImage";
 import MainInfoCat from "@/components/Infocat/mainInfoCat";
 import ConsultaSection from "@/components/ConsultaCat/consultaSection";
+import ProductContent from "@/components/Products/productContent";
 import Footer from "@/components/Footer/mainFooter";
 
 import LightEffectsLeft from "@/components/LightEffects/lightEffectsLeft";
@@ -39,10 +40,13 @@ export default function Home() {
 
       {/* Consulta */}
       <ConsultaSection/>
-      {/* <Preview />
-      <MainConsulta/> */}
       {/* Consulta */}
       
+      {/* Produtos */}
+      <ProductContent/>
+      {/* Produtos */}
+
+
       {/* Footer */}
       <Footer/>
       {/* Footer */}
