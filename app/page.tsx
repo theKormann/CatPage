@@ -8,10 +8,13 @@ import MainImage from "@/components/Header/mainImage";
 import MainInfoCat from "@/components/Infocat/mainInfoCat";
 import ConsultaSection from "@/components/ConsultaCat/consultaSection";
 import ProductContent from "@/components/Products/productContent";
+import MainVacina from "@/components/vacina/mainVacina";
+import MainReviews from "@/components/reviewsCat/mainReviews";
 import Footer from "@/components/Footer/mainFooter";
 
 import LightEffectsLeft from "@/components/LightEffects/lightEffectsLeft";
 import LightEffectsRight from "@/components/LightEffects/lightEffectsRight";
+import MainSpot from "@/components/spot/mainSpot";
 
 export default function Home() {
   return (
@@ -42,10 +45,21 @@ export default function Home() {
       <ConsultaSection/>
       {/* Consulta */}
       
+      {/* Vacinas */}
+      <MainVacina/>
+      {/* Vacinas */}
+
+      {/* Avaliações */}
+      <MainReviews/>
+      {/* Avaliações */}
+
+      {/* Localização */}
+      <MainSpot/>
+      {/* Localização */}
+
       {/* Produtos */}
       <ProductContent/>
       {/* Produtos */}
-
 
       {/* Footer */}
       <Footer/>

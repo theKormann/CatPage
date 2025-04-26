@@ -17,12 +17,12 @@ export default function ProductContent() {
   const loopedProducts = [...products, ...products];
 
   return (
-    <section className="w-screen h-screen bg-[#b2e6ff] overflow-hidden flex flex-col justify-center items-center px-4 text-center">
+    <section className="w-screen h-screen bg-[#b0c737] overflow-hidden flex flex-col justify-center items-center px-4 text-center">
       <div className="max-w-4xl mx-auto z-10 mb-12">
-        <h2 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
-          Conheça nossos produtos exclusivos
+        <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">
+          Esses Produtos São Os Mais Pedidos Através de Miados!
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-white-600 max-w-2xl mx-auto">
           Selecionamos com carinho os melhores itens para o bem-estar, diversão e saúde do seu pet!
         </p>
       </div>

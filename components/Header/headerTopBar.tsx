@@ -36,7 +36,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 transition-transform duration-500 border-b shadow-md bg-grey/30 dark:bg-zinc-900/80 backdrop-blur-md flex items-center justify-between ${showHeader ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 transition-transform duration-500 border-b shadow-md bg-black/30 dark:bg-zinc-900/80 backdrop-blur-md flex items-center justify-between ${showHeader ? 'translate-y-0' : '-translate-y-full'
         }`}
     >
       <div className="flex items-center gap-2">
