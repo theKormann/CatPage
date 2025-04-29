@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LightEffectsRight from '../LightEffects/lightEffectsRight';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +54,7 @@ export default function ConsultaSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[200vh] overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
+      className="relative w-full overflow-hidden bg-fixed bg-center bg-cover bg-no-repeat"
     >
       <div className="absolute inset-0 bg-black/20 z-10" />
 
@@ -68,9 +69,11 @@ export default function ConsultaSection() {
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
             Cuidar do seu pet começa por aqui. Você está no lugar correto para o melhor resultado do seu amigo felino.
           </p>
-          <button className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary/80 transition duration-300">
-            descubra o caminho à direita!
-          </button>
+          <Link href="/#booking">
+            <button className="bg-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-primary/80 transition duration-300">
+              descubra o caminho à direita!
+            </button>
+          </Link>
         </div>
 
         <div ref={containerRef} className="flex gap-8 w-max">
@@ -80,33 +83,48 @@ export default function ConsultaSection() {
               description:
                 'Trazer o seu gato para o nosso espaço é o primeiro passo para garantir a saúde e felicidade dele, pode ser uma boa também explorar os nossos produtos!',
               buttonText: 'Conheça nosso espaço',
+              link: '/#map',
             },
             {
               title: 'Consultas e exames',
               description:
                 'A consulta acompanhada de exames é essencial para um diagnóstico preciso e um tratamento eficaz.',
               buttonText: 'Agende sua consulta',
+              link: '/#booking',
             },
             {
               title: 'Retorno e acompanhamento',
               description:
                 'O retorno e acompanhamento são fundamentais para garantir que o tratamento está funcionando e que o seu gato está se recuperando bem.',
               buttonText: 'Acompanhe seu pet',
+              link: 'https://wa.me/551128351614?text=Oi%2C+gostaria+de+agendar+um+retorno+para+meu+pet!',
             },
           ].map((item, index) => (
             <div
               key={index}
-              className={`
-                border border-white/20 rounded-2xl p-8 w-full max-w-xl h-[500px] w-[10000px]
-                text-white shadow-xl hover:shadow-2xl transition-shadow
-                flex flex-col justify-center text-2xl font-semibold
-              `}
+              className="border border-white/20 rounded-2xl p-8 w-full max-w-xl h-[500px] text-white shadow-xl hover:shadow-2xl transition-shadow flex flex-col justify-center text-2xl font-semibold"
             >
               <div className="text-center mb-4">{item.title}</div>
               <p className="text-sm text-justify leading-relaxed">{item.description}</p>
-              <button className="mt-4 bg-[#274e61] text-white px-5 py-2 rounded-lg shadow hover:bg-black transition duration-300">
-                {item.buttonText}
-              </button>
+
+              {item.link.startsWith('http') ? (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  role="button"
+                  aria-label={item.buttonText}
+                  className="mt-4 bg-[#274e61] text-white px-5 py-2 rounded-lg shadow hover:bg-black transition duration-300 mx-auto text-center"
+                >
+                  {item.buttonText}
+                </a>
+              ) : (
+                <Link href={item.link}>
+                  <button className="flex justify-center mt-4 bg-[#274e61] text-white px-5 py-2 rounded-lg shadow hover:bg-black transition duration-300 mx-auto">
+                    {item.buttonText}
+                  </button>
+                </Link>
+              )}
             </div>
           ))}
 

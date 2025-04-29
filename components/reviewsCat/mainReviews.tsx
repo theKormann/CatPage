@@ -32,7 +32,9 @@ export default function MainReviews() {
   }, []);
 
   return (
-    <section className="relative w-screen min-h-screen bg-[#fff] py-20 px-4 text-center overflow-hidden">
+    <section 
+    id='reviews'
+    className="relative w-screen min-h-screen bg-[#fff] py-20 px-4 text-center overflow-hidden">
       {/* Estrela esquerda */}
       <div
         className="absolute left-0 top-1/2 transform -translate-y-1/2 lg:block hidden"

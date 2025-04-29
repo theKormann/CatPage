@@ -27,7 +27,7 @@ export default function MainInfoCat() {
   }, []);
 
   return (
-    <section className="relative py-16 px-6 bg-transparent backdrop-blur-sm overflow-hidden">
+    <section id="infocat" className="relative py-16 px-6 bg-transparent backdrop-blur-sm overflow-hidden">
       <h2 className="text-3xl font-bold text-center text-white mb-12">
         Você Sabia Que Por Trás Dos Miados:
       </h2>

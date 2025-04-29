@@ -17,7 +17,7 @@ export default function ProductContent() {
   const loopedProducts = [...products, ...products];
 
   return (
-    <section className="w-screen h-screen bg-[#b0c737] overflow-hidden flex flex-col justify-center items-center px-4 text-center">
+    <section id="products" className="w-screen h-screen bg-[#b0c737] overflow-hidden flex flex-col justify-center items-center px-4 text-center">
       <div className="max-w-4xl mx-auto z-10 mb-12">
         <h2 className="text-4xl md:text-6xl font-bold mb-4 text-white">
           Esses Produtos São Os Mais Pedidos Através de Miados!

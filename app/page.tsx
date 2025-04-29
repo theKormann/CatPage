@@ -7,8 +7,9 @@ import Header from "@/components/Header/headerTopBar";
 import MainImage from "@/components/Header/mainImage";
 import MainInfoCat from "@/components/Infocat/mainInfoCat";
 import ConsultaSection from "@/components/ConsultaCat/consultaSection";
+import MainBookingContent from "@/components/CatBooking/mainBookingContent";
 import ProductContent from "@/components/Products/productContent";
-import MainVacina from "@/components/vacina/mainVacina";
+import MainVacina from "@/components/vaccine/mainVacina";
 import MainReviews from "@/components/reviewsCat/mainReviews";
 import Footer from "@/components/Footer/mainFooter";
 
@@ -45,6 +46,12 @@ export default function Home() {
       <ConsultaSection/>
       {/* Consulta */}
       
+      {/* Booking */}
+      <MainBookingContent/>
+      {/* Booking */}
+
+      {/* Produtos */}
+
       {/* Vacinas */}
       <MainVacina/>
       {/* Vacinas */}
