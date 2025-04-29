@@ -12,12 +12,12 @@ export default function MainVacina() {
             duration: 1000,
             once: true,
         });
-    
+
         return () => {
-            AOS.refreshHard(); 
+            AOS.refreshHard();
         };
     }, []);
-    
+
 
     const [openModal, setOpenModal] = useState(false);
     interface Card {

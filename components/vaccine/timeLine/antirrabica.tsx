@@ -2,17 +2,21 @@
 
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const timelineData = [
   {
+    id: 'dose',
     title: 'Primeira dose (140 dias)',
     description: 'A vacinação contra a raiva é indicada a partir dos 4 meses de idade.',
   },
   {
+    id: 'reforco',
     title: 'Reforço anual',
     description: 'A vacina deve ser reaplicada anualmente para manter a proteção eficaz.',
   },
   {
+    id: 'familia',
     title: 'Proteção da família',
     description: 'Além de proteger o gato, a vacinação previne a transmissão da raiva para humanos.',
   },
@@ -27,15 +31,14 @@ export default function AntirrabicaTimeLine() {
 
       <div className="relative border-l-2 border-[#b3df4e]">
         {timelineData.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            className="mb-10 ml-6"
-          >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center relative group">
+          <div key={item.id} className="mb-10 ml-6">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row items-start sm:items-center relative group"
+            >
               <div className="w-4 h-4 bg-[#b3df4e] rounded-full absolute -left-2 top-2 transition-transform group-hover:scale-125" />
 
               <Card className="ml-6 w-full max-w-md shadow-md group-hover:shadow-xl transition-all duration-300">
@@ -44,10 +47,24 @@ export default function AntirrabicaTimeLine() {
                   <p className="text-gray-600">{item.description}</p>
                 </CardContent>
               </Card>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         ))}
       </div>
+
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ type: 'spring', stiffness: 300 }}
+        className="mt-12"
+      >
+        <Button
+          size="lg"
+          className="bg-[#b3df4e] text-black font-bold px-6 py-3 hover:bg-lime-400 transition-colors duration-300"
+        >
+          Agendar a minha vacinação
+        </Button>
+      </motion.div>
     </div>
   );
 }
