@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function MainVacina() {
     const [openModal, setOpenModal] = useState(false);
@@ -47,7 +46,7 @@ export default function MainVacina() {
     ];
 
     useEffect(() => {
-        setIsMounted(true); // Impede que o conteúdo seja renderizado antes da montagem do cliente
+        setIsMounted(true); 
         if (typeof window !== 'undefined') {
             AOS.init({
                 duration: 1000,

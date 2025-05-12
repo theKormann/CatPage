@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaCat } from 'react-icons/fa'; 
-import LightEffect from '../LightEffects/lightEffectsLeft';
 
 export default function MainTitle() {
     useEffect(() => {

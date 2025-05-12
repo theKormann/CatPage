@@ -32,10 +32,9 @@ export default function MainReviews() {
   }, []);
 
   return (
-    <section 
-    id='reviews'
-    className="relative w-screen min-h-screen bg-[#fff] py-20 px-4 text-center overflow-hidden">
-      {/* Estrela esquerda */}
+    <section
+      id='reviews'
+      className="relative w-screen min-h-screen bg-[#fff] py-20 px-4 text-center overflow-hidden">
       <div
         className="absolute left-0 top-1/2 transform -translate-y-1/2 lg:block hidden"
         data-aos="fade-right"
@@ -49,7 +48,6 @@ export default function MainReviews() {
         />
       </div>
 
-      {/* Estrela direita */}
       <div
         className="absolute right-0 top-[500px] transform -translate-y-1/2 lg:block hidden"
         data-aos="fade-left"
@@ -87,14 +85,13 @@ export default function MainReviews() {
                   <Star
                     key={i}
                     size={20}
-                    className={`${
-                      i < review.rating ? 'text-yellow-400' : 'text-gray-300'
-                    }`}
+                    className={`${i < review.rating ? 'text-yellow-400' : 'text-gray-300'
+                      }`}
                     fill={i < review.rating ? '#facc15' : 'none'}
                   />
                 ))}
               </div>
-              <p className="text-justify text-gray-700 mb-4 text-[1.3rem] ">"{review.text}"</p>
+              <p className="text-justify text-gray-700 mb-4 text-[1.3rem]">{review.text}</p>
             </div>
             <span className="font-semibold text-gray-900">— {review.name}</span>
           </motion.div>
