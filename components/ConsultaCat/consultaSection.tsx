@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import LightEffectsRight from '../LightEffects/lightEffectsRight';
 import Link from 'next/link';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -129,9 +130,11 @@ export default function ConsultaSection() {
           ))}
 
           <div className="flex-shrink-0 w-full max-w-xl h-[500px] flex items-center justify-center">
-            <img
+            <Image
               src="/images/canva-cat-maine-coon.png"
-              alt="Imagem final"
+              alt="catMaineCoon"
+              width={500}
+              height={500}
               className="w-full h-full object-cover rounded-2xl shadow-xl"
             />
           </div>
