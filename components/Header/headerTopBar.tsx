@@ -14,16 +14,17 @@ import {
 export default function Header() {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false); 
 
   useEffect(() => {
+    setHasMounted(true);
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Rolando para baixo
         setShowHeader(false);
       } else {
-        // Rolando para cima
         setShowHeader(true);
       }
 
@@ -34,9 +35,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+
+  if (!hasMounted) return null;
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 transition-transform duration-500 border-b shadow-md bg-black/30 dark:bg-zinc-900/80 backdrop-blur-md flex items-center justify-between ${showHeader ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-4 h-[100px] transition-transform duration-500 border-b shadow-md bg-black/30 dark:bg-zinc-900/80 backdrop-blur-md flex items-center justify-between ${showHeader ? 'translate-y-0' : '-translate-y-full'
         }`}
     >
       <a href="/">

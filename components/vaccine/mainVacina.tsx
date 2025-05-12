@@ -1,25 +1,15 @@
 'use client';
 
-import { SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function MainVacina() {
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-
-        return () => {
-            AOS.refreshHard();
-        };
-    }, []);
-
-
     const [openModal, setOpenModal] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
     interface Card {
         title: string;
         image: string;
@@ -29,7 +19,7 @@ export default function MainVacina() {
 
     const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
-    const cards = [
+    const cards: Card[] = [
         {
             title: 'Vacina Tríplice',
             image: '/Images/vacina-triplice.png',
@@ -56,6 +46,21 @@ export default function MainVacina() {
         },
     ];
 
+    useEffect(() => {
+        setIsMounted(true); // Impede que o conteúdo seja renderizado antes da montagem do cliente
+        if (typeof window !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                once: true,
+            });
+        }
+        return () => {
+            if (typeof window !== 'undefined') {
+                AOS.refreshHard();
+            }
+        };
+    }, []);
+
     const handleOpenModal = (card: Card) => {
         setSelectedCard(card);
         setOpenModal(true);
@@ -65,6 +70,8 @@ export default function MainVacina() {
         setOpenModal(false);
         setSelectedCard(null);
     };
+
+    if (!isMounted) return null;
 
     return (
         <section id="vaccine" className="relative w-full min-h-screen bg-fixed bg:[#0000003b] bg-cover bg-center text-white flex flex-col justify-center items-center px-4 overflow-hidden">
@@ -110,24 +117,30 @@ export default function MainVacina() {
             </div>
 
             {openModal && selectedCard && (
-                <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 px-4">
-                    <div className="bg-white rounded-2xl p-8 max-w-md w-full relative text-black">
-                        <button
-                            onClick={handleCloseModal}
-                            className="absolute top-4 right-4 text-black text-2xl font-bold"
-                        >
-                            &times;
-                        </button>
-                        <h2 className="text-2xl font-bold mb-4">{selectedCard.title}</h2>
-                        <p className="text-base mb-6">{selectedCard.description}</p>
-                        <Link href={selectedCard.link}>
-                            <button className="bg-[#b3df4e] text-black font-semibold px-4 py-2 rounded hover:bg-gray-200 transition w-full">
-                                Exibir Cronograma de vacinação
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            )}
+    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 px-4">
+        <div className="bg-white rounded-2xl p-8 max-w-md w-full relative text-black">
+            <button
+                onClick={handleCloseModal}
+                className="absolute top-4 right-4 text-black text-2xl font-bold"
+            >
+                &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-4">{selectedCard.title}</h2>
+            <p className="text-base mb-6">{selectedCard.description}</p>
+            <button
+                onClick={() => {
+                    handleCloseModal();
+                    setTimeout(() => {
+                        window.location.href = selectedCard.link;
+                    }, 200); 
+                }}
+                className="bg-[#b3df4e] text-black font-semibold px-4 py-2 rounded hover:bg-gray-200 transition w-full"
+            >
+                Exibir Cronograma de vacinação
+            </button>
+        </div>
+    </div>
+)}
         </section>
     );
 }
